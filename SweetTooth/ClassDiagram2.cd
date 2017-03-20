@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SweetTooth.Models.Category">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EF\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SweetTooth.Models.Offer">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAQAAAIQgAAAAAAAAAAAIAEQAAAA=</HashCode>
+      <FileName>Models\EF\Offer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SweetTooth.Models.Product">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAACAQAgAAAAAAAAAIQAACAAAAAAAABIAAAAAAA=</HashCode>
+      <FileName>Models\EF\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SweetTooth.Models.EF.Feedback">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAIAg=</HashCode>
+      <FileName>Models\EF\Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

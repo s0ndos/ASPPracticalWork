@@ -1,0 +1,129 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@ViewBag.MetaDescription">
+    <meta property="og:url" content="http://www.sweet-tooth-montreal.com/index.html" />
+    <meta property="og:title" content="Discover Sweet Tooth: Ice Cream Shop in Montreal" />
+    <meta property="og:description" content="Ice cream, sorbet, gelato, soft serve - Welcome to Sweet Tooth! We have the best ice cream in Montreal." />
+    <meta property="og:image" content="images/sweet-tooth-logo.png" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/css/styles1.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
+    @*<script src="~/Scripts/IndexJS.js"></script>*@
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+        <!-- HEADER START -->
+        <header class="col-12">
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="loginContainer">
+            <ul class="login-register">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+
+
+                        @if (this.User.IsInRole("Admin"))
+                        {
+
+                            <h3><span class="dashboard-span">@Html.ActionLink("DASHBOARD", "Index", "Dashboard")</span></h3>
+                        }
+        </div>
+    }
+}
+else
+{
+            <div class="loginContainer">
+                <ul class="login-register">
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) |</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                </ul>
+            </div>
+            }
+
+            <div id="nav-container">
+                <div class="row brown-bar">
+                    <!-- row for the header -->
+                    <div id="logo" class="col-3">
+                        <a href=""><img src="~/Content/images/sweet-tooth-logo.png" alt="logo of Sweet Tooth"></a>
+                    </div>
+                    <nav class="col-6">
+                        <div class="link col-m-12">
+
+
+                            @{
+                                string currentPage = this.ViewContext.RouteData.Values["action"].ToString().ToLower();
+                            }
+
+
+                            <a href="@Url.Action("Index", "Home")" class='@(currentPage == "index" ? "active" : "")'><img src="~/Content/images/icons/home.png" alt="homepage icon">HOME</a>
+
+                        </div>
+                        <div class="link col-m-12">
+                            <a href="@Url.Action("Products", "Home")" class='@(currentPage == "products" ? "active" : "")'><img src="~/Content/images/icons/icecreamicon.png" alt="ice cream products icon">PRODUCTS</a>
+                        </div>
+                        <div class="link col-m-12">
+                            <a href="@Url.Action("contact", "Home")" class='@(currentPage == "contact" ? "active" : "")'><img src="~/Content/images/icons/contacticon.png" alt="contact us page icon">CONTACT US</a>
+                        </div>
+                    </nav>
+                    <form class="col-3" action="index.html">
+                        <input type="search" placeholder="Search">
+                    </form>
+                </div> <!-- end of row for the header -->
+            </div> <!-- end of nav container -->
+            @if (IsSectionDefined("slider"))
+            {
+                @RenderSection("slider")
+            }
+</header>
+            @RenderBody()
+
+            <!-- FOOTER START -->
+            <footer class="row">
+                <!-- row for the footer -->
+                <div id="sitemap" class="col-4">
+                    <h3>Sitemap</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Home","Index","Home")</li>
+                        <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+                <div id="social" class="col-4">
+                    <span><a href="#">d</a> <a href="#">c</a> <a href="#">l</a></span>
+                </div>
+                <div id="footer-contact" class="col-4">
+                    <h3>Contact Us</h3>
+                    <div itemscope itemtype="http://schema.org/PostalAddress">
+                        <p>
+                            <span class="footer-address" itemprop="streetAddress">9834 Drury Lane</span>
+                            <span class="footer-address">
+                                <span itemprop="addressLocality">Montreal,</span>
+                                <span itemprop="addressRegion"> QC</span>
+                                <span itemprop="postalCode"> H2H 2T2</span>
+                            </span>
+                            <span class="footer-address" itemprop="telephone">514-555-8372</span>
+                        </p>
+                    </div>
+                </div>
+            </footer><!-- end of row for the footer -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

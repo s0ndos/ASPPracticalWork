@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Montreal Ice Cream Shop - Sweet Tooth - Menu and Products";
+    ViewBag.MetaDescription = "Sweet Tooth - The best ice cream shop in montreal | Menu and Products";
+}
+
+
+        <!-- MAIN SECTION START -->
+        <section>
+            <div id="brown-bar2"></div>
+            <img id="products-img" src="~/Content/images/ice-cream-cone-with-nuts.jpg" alt="ice cream with nuts on top">
+            <div id="section-container-products">
+                <div class="row">
+                    <!-- row for the main heading -->
+                    <div id="main-title" class="col-12"><h1>Menu</h1></div>
+                </div><!-- end of row for the main heading -->
+                <div class="row">
+                    <!-- row for the content -->
+                    <div class="col-8 tc-container">
+                        <div id="tabbed-content">
+                            <!--tabbed content container-->
+                            <a href="#!" onmouseover="openTab(event, 'Offers');" onclick="openTab(event, 'Offers');">
+                                <div class="quarter tablink border-green bottombar new-padding">Offers</div>
+                            </a>
+                            <a href="#!" onmouseover="openTab(event, 'Flavors');" onclick="openTab(event, 'Flavors');">
+                                <div class="quarter tablink bottombar   new-padding"> Flavors</div>
+                            </a>
+                            <a href="#!" onmouseover="openTab(event, 'Cakes');" onclick="openTab(event, 'Cakes');">
+                                <div class="quarter tablink bottombar   new-padding"> Cakes</div>
+                            </a>
+                            <a href="#!" onmouseover="openTab(event, 'Sundaes');" onclick="openTab(event, 'Sundaes');">
+                                <div class="quarter tablink bottombar   new-padding"> Sundaes</div>
+                            </a>
+
+                            <div id="Offers" class="srv-container service" style="display:block">
+                                <h2>Special 2-for-1 promotion!</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus erat eget lorem fermentum, ac finibus tellus feugiat. Nunc placerat cursus diam a efficitur. Sed eu velit mollis, iaculis nibh in, luctus sem. Sed elementum mauris sed libero ornare, ac elementum risus condimentum. Nam sed fermentum nunc. Fusce non lorem neque. Pellentesque tincidunt lectus ut tristique elementum. Sed at nisi vel tortor elementum commodo. Quisque mi dui, scelerisque id scelerisque imperdiet, tempus eget lorem. Donec malesuada commodo interdum.</p>
+                                <ul>
+                                    <li>Special Offer 1</li>
+                                    <li>Special Offer 2</li>
+                                    <li>Special Offer 3</li>
+                                </ul>
+                            </div>
+
+                            <div id="Flavors" class="srv-container service">
+                                <h2>Discover our <strong>wide variety of flavors</strong></h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer keyser sozehc nulla leo, euismod fringilla condimentum sed, sollicitudin vel velit. Nulla volutpat ex eget eros tincidunt semper. </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla leo, euismod fringilla condimentum sed, sollicitudin vel velit. Nulla volutpat ex eget eros tincidunt semper. </p>
+                                <ul>
+                                    <li>Strawberry</li>
+                                    <li>Cookie Dough</li>
+                                    <li>Mint Chocolate</li>
+                                </ul>
+                            </div>
+
+                            <div id="Cakes" class="srv-container service">
+                                <h2>Delicious ice cream cakes for everyone!</h2>
+                                <p>Sed ac euismod ex, ac malesuada erat. Donec sit amet tellus ligula. Curabitur condimentum mauris turpis, ac pretium lorem rhoncus vel. Cras mollis, magna infraredskittle malesuada sodales venenatis, neque orci posuere sem, eu vestibulum nibh tellus nec diam. Aliquam porttitor lobortis nibh sit amet aliquam. Aliquam ullamcorper nibh ac lacinia condimentum. Proin et mi ultricies, molestie mauris at, posuere orci. Donec non risus sapien. Sed convallis lectus nisi, sit amet mollis mauris blandit ut.</p>
+                                <ul>
+                                    <li>Orea cheesecake</li>
+                                    <li>Banana Chocolate Caramel</li>
+                                    <li>Cappuccino</li>
+                                </ul>
+                            </div>
+
+                            <div id="Sundaes" class="srv-container service">
+                                <h2>We have <em>the best sundaes in the city</em>!</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla leo, euismod fringilla condimentum sed, sollicitudin vel velit. Nulla itsk5 volutpat ex eget eros tincidunt semper. </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla leo, euismod fringilla condimentum sed, sollicitudin vel velit. Nulla volutpat ex eget eros tincidunt semper. </p>
+                                <ul>
+                                    <li>Hot Fudge</li>
+                                    <li>Strawberry</li>
+                                    <li>Butterscotch</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-4 sn-container">
+                        <div id="secondary-nav">
+                            <h3>Secondary nav</h3>
+                            <ul>
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                        </div>
+                        <div id="pdf-download">
+                            <img src="~/Content/images/icons/download-icon.png" alt="an icon to download a pdf">
+                            <a href="pdf/nutritional-guide-sweet-tooth.pdf" download="Sweet Tooth's Nutritional Guide">Download our Nutritional Guide</a>
+                        </div>
+                    </div>
+                </div><!-- end of row for the content -->
+            </div>
+        </section>
+
+<script>
+		function openTab(evt, tabName) {
+		  var i, x, tablinks;
+		  x = document.getElementsByClassName("service");
+		  for (i = 0; i < x.length; i++) {
+		     x[i].style.display = "none";
+		  }
+		  tablinks = document.getElementsByClassName("tablink");
+		  for (i = 0; i < x.length; i++) {
+		     tablinks[i].className = tablinks[i].className.replace("border-green", "");
+		  }
+		  document.getElementById(tabName).style.display = "block";
+		  evt.currentTarget.firstElementChild.className += " border-green";
+		}
+</script>
+

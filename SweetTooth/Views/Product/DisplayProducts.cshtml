@@ -1,0 +1,40 @@
+﻿@using SweetTooth.Models;
+@model List<Product>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+@*
+        public string ImagePath { get; set; }
+*@
+
+    <table class="dash-table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock quantity</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Operations</th>
+        </tr>
+
+        @foreach (Product p in this.Model)
+        {
+            <tr>
+                <td>@p.ProductID</td>
+                <td>@p.Name</td>
+                <td>@p.Price</td>
+                <td>@p.QtyStock</td>
+                <td>@p.Description</td>
+                <td>@p.CategoryID</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", routeValues: new { id = p.ProductID }, controllerName: "Product",
+                     htmlAttributes: new { onclick = "return confirm('Are you sure you want to delete this?')" })
+                </td>
+            </tr>
+        }
+    </table>
+
+

@@ -1,0 +1,31 @@
+﻿@using SweetTooth.Models.EF;
+@model List<Feedback>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<table class="dash-table">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Comments</th>
+        <th>Operations</th>
+    </tr>
+
+    @foreach (Feedback f in this.Model)
+    {
+        <tr>
+            <td>@f.FeedbackId</td>
+            <td>@f.FirstName</td>
+            <td>@f.LastName</td>
+            <td>@f.Comments</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", routeValues: new { id = f.FeedbackId }, controllerName: "Feedback", htmlAttributes: new { onclick = "return confirm('Are you sure you want to delete this?')" })
+            </td>
+        </tr>
+    }
+</table>
+
+

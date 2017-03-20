@@ -1,0 +1,96 @@
+﻿@using SweetTooth.Models;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Ice Cream Parlour in Montreal | Sweet Tooth";
+    ViewBag.MetaDescription = "Ice cream, sorbet, gelato, soft serve - Welcome to Sweet Tooth! We have the best ice cream in Montreal";
+    List<Product> allprods = ViewBag.AllProducts;
+}
+
+@section slider{
+<div class="row">
+    <!-- row for the slider -->
+    <div id="slider" class="col-12">
+        <div class="w3-content w3-display-container" style="max-width:800px">
+
+            <div class="mySlides">
+                <h2 class="slider-text">Our Delicious Sundaes</h2>
+                <img src="~/Content/images/slider/ice-cream-sundae.jpg" style="width:100%" alt="ice cream sundae">
+            </div>
+
+            <div class="mySlides">
+                <h2 class="slider-text">All kinds of cones to choose from!</h2>
+                <img src="~/Content/images/slider/ice-cream-cones.jpg" style="width:100%" alt="ice cream cones">
+            </div>
+
+            <div class="mySlides">
+                <h2 class="slider-text">A perfect treat for the summer heat!</h2>
+                <img src="~/Content/images/slider/summer-ice-cream.jpg" style="width:100%" alt="woman hand holding vanilla ice cream on a cone">
+            </div>
+
+
+            <div class="w3-center w3-section w3-large w3-text-white w3-display-bottomleft" style="width:100%">
+                <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+            </div>
+        </div>
+    </div>
+</div> <!-- end of row for the slider -->    
+    }
+        <!-- MAIN SECTION START -->
+        <section>
+    <div id="brown-bar2"></div>
+    <div id="section-container">
+        <div class="row">
+            <!-- row for the main heading -->
+            <div id="main-title" class="col-12">
+                <h1>Got a Sweet Tooth?</h1>
+                <h3>Serving <strong>the best ice cream in Montreal</strong> since 2010</h3>
+            </div>
+        </div><!-- end of row for the main heading -->
+        <div class="row">
+            @foreach (var item in allprods)
+            {
+                <div class="service-container col-6">
+                    <h3>@item.Name</h3>
+                    <img src="@item.ImagePath" />
+                    <p>@item.Description</p>
+                    <input type="submit" class="submitbutton" value="View All">
+                </div>
+            }
+        </div>
+
+    </div>
+            </section>
+        <script>
+
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function currentDiv(n) {
+                showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = x.length }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" w3-white", "");
+                }
+                x[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " w3-white";
+            }
+        </script>

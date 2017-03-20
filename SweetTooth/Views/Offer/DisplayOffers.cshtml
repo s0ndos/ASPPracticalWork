@@ -1,0 +1,34 @@
+﻿@using SweetTooth.Models;
+@model List<Offer>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<table class="dash-table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Description</th>
+        <th>Operations</th>
+    </tr>
+
+    @foreach (Offer o in this.Model)
+    {
+        <tr>
+            <td>@o.OfferID</td>
+            <td>@o.Name</td>
+            <td>@o.StartDate</td>
+            <td>@o.EndDate</td>
+            <td>@o.Description</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", routeValues: new { id = o.OfferID }, controllerName: "Offer",
+                 htmlAttributes: new { onclick = "return confirm('Are you sure you want to delete this?')" })
+            </td>
+        </tr>
+    }
+</table>
+
+

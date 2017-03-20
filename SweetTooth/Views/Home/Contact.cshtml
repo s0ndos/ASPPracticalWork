@@ -1,0 +1,95 @@
+﻿@using SweetTooth.Models.EF
+
+@model Feedback
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Montreal Ice Cream Shop - Sweet Tooth - Opening Hours and Contact";
+    ViewBag.MetaDescription = "Sweet Tooth - The best ice cream shop in montreal | Opening hours and location";
+}
+        <!-- MAIN SECTION START -->
+        <section>
+            <div id="brown-bar2"></div>
+            <div id="map">
+                <div id="my-map-canvas">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.302743370954!2d-73.64289478409698!3d45.544235079101945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc918e0c061b07f%3A0x647a6b6d7cb681a7!2sISI%2C+l&#39;Institut+sup%C3%A9rieur+d&#39;informatique!5e0!3m2!1sen!2sca!4v1469115098762"></iframe>
+                </div>
+            </div>
+            <div id="section-container">
+                <div class="row">
+                    <!-- row for the main heading -->
+                    <div id="main-title" class="col-12"><h1>Contact Us</h1></div>
+                </div><!-- end of row for the main heading -->
+                <div class="row">
+                    <div id="contact1" class="col-4 col-m-6">
+                        <h3>Sweet Tooth</h3>
+                        <div itemscope itemtype="http://schema.org/PostalAddress">
+                            <p>
+                                <span class="footer-address" itemprop="streetAddress">9834 Drury Lane</span>
+                                <span class="footer-address">
+                                    <span itemprop="addressLocality">Montreal,</span>
+                                    <span itemprop="addressRegion">QC</span>
+                                    <span itemprop="postalCode"> H2H 2T2</span>
+                                </span>
+                                <span class="footer-address" itemprop="telephone"><img src="~/Content/images/icons/telephone-icon.png">514-555-8372</span>
+                            </p>
+                        </div>
+                        <h3>Opening Hours</h3>
+                        <div>
+                            <ul>
+                                <li>Monday</li>
+                                <li>Tuesday</li>
+                                <li>Wednesday</li>
+                                <li>Thursday</li>
+                                <li>Friday</li>
+                                <li>Saturday</li>
+                                <li>Sunday</li>
+                            </ul>
+                            <ul itemscope itemtype="http://schema.org/LocalBusiness">
+                                <li><span itemprop="openingHours" content="Mo 10:00-18:00">10:00 - 18:00</span></li>
+                                <li><span itemprop="openingHours" content="Tu 10:00-18:00">10:00 - 18:00</span></li>
+                                <li><span itemprop="openingHours" content="We 10:00-18:00">10:00 - 18:00</span></li>
+                                <li><span itemprop="openingHours" content="Th 10:00-18:00">10:00 - 21:00</span></li>
+                                <li><span itemprop="openingHours" content="Fr 10:00-18:00">10:00 - 21:00</span></li>
+                                <li><span itemprop="openingHours" content="Sa 10:00-18:00">10:00 - 17:00</span></li>
+                                <li><span itemprop="openingHours" content="Su 10:00-18:00">10:00 - 17:00</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                        @*<form>*@
+                    @using (Html.BeginForm(actionName: "Create", controllerName: "Feedback"))
+                    {
+                            <div id="contact2" class="col-4 col-m-6">
+                                <h3>Write to us</h3>
+                                @Html.LabelFor(m=>m.LastName, "Last Name")
+                                @Html.TextBoxFor(m=>m.LastName)
+                                @*<label for="lastname">Last Name</label>*@
+                                @*<input type="text" name="last name" id="lastname">*@
+
+                                @Html.LabelFor(m => m.FirstName, "First Name")
+                                @Html.TextBoxFor(m => m.FirstName)
+                                @*<label for="firstname">First Name</label>*@
+                                @*<input type="text" name="first name" id="firstname">*@
+
+                                <span>Preferred time</span>
+                                <label><input type="checkbox" /> Label text</label>
+                                <label><input type="checkbox" /> Label text</label>
+                                <label><input type="checkbox" /> Label text</label>
+                            </div>
+                        <div id="contact3" class="col-4 col-m-12">
+                        <h3>Comments</h3>
+                            @Html.TextAreaFor(m=>m.Comments, htmlAttributes: new { placeholder = "Your message goes here" })
+                            @*<textarea>Your message goes here</textarea>*@
+                        
+                            <span>Preferred day</span>
+                        <label><input type="radio" name="time" /> Label text</label>
+                        <label><input type="radio" name="time" /> Label text</label>
+                    </div>
+                    <input type="submit" class="submitbutton contactbutton" value="Submit">
+                    }
+                    @*</form>*@
+                </div>
+            </div>
+        </section>
+
+<script src="https://www.dog-checks.com/google-maps-authorization.js?id=321d0740-4039-be3e-aef1-8a9cce543b52&c=embed-map-code&u=1468935883" defer="defer" async="async">
+</script>

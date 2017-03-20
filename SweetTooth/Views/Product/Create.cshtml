@@ -1,0 +1,56 @@
+﻿    @using SweetTooth.Models;
+    @model Product
+    @{
+        ViewBag.Title = "Create";
+    }
+
+    @using (Html.BeginForm(actionName: "Create", controllerName: "Product", routeValues: null, method: FormMethod.Post, htmlAttributes: new { @class = "dashboard-form"}))
+    {
+        <div>
+
+            <div>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Price)
+                @Html.TextBoxFor(m => m.Price)
+                @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.QtyStock)
+                @Html.TextBoxFor(m => m.QtyStock)
+                @Html.ValidationMessageFor(m => m.QtyStock, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description)
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+
+            @{
+                IEnumerable<SelectListItem> selectLst = ViewBag.CategorySelectItems as IEnumerable<SelectListItem>;
+            }
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CategoryID, labelText: "Category", htmlAttributes: new { @class = "" })
+                @Html.DropDownListFor(m => m.CategoryID, selectLst, optionLabel: "-select-",
+     htmlAttributes: new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.CategoryID, "",
+     new { @class = "text-danger col-md-offset-2" }
+    )
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Create" />
+                </div>
+            </div>
+
+        </div>
+    }

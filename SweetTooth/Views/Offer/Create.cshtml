@@ -1,0 +1,48 @@
+﻿@using SweetTooth.Models;
+@model Offer
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm(actionName: "Create", controllerName: "Offer", routeValues: null, method: FormMethod.Post, htmlAttributes: new { @class = "dashboard-form" }))
+{
+
+    //    public string Name { get; set; }
+    //public DateTime StartDate { get; set; }
+    //public DateTime EndDate { get; set; }
+    //public string Description { get; set; }
+    //public string ImagePath { get; set; }
+
+    <div>
+
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.StartDate)
+            <input for="StartDate" type="date" name="StartDate">
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.EndDate)
+            <input for="EndDate" type="date" name="EndDate">
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description)
+            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+
+    </div>
+            }
+

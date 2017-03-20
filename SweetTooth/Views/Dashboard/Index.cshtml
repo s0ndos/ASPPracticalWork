@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="dashboard-wrapper">
+    <h2>Admin Dashboard</h2>
+    <hr />
+    <div class="dashboard-div">
+        <h4>Categories</h4>
+        @this.Ajax.ActionLink(linkText: "Add a category", actionName: "Create", routeValues: null, controllerName: "Category", ajaxOptions: new AjaxOptions { UpdateTargetId = "catform" }, htmlAttributes: new { @class = "submitbutton"})
+        <div id="catform">
+        </div>
+
+        @this.Ajax.ActionLink(linkText: "View Categories", actionName: "DisplayCategories", routeValues: null, controllerName: "Category", ajaxOptions: new AjaxOptions { UpdateTargetId = "cattable" }, htmlAttributes: new { @class = "submitbutton" })
+        <div id="cattable">
+        </div>
+    </div>
+    <div class="dashboard-div">
+        <h4>Products</h4>
+        @this.Ajax.ActionLink(linkText: "Add a product", actionName: "Create", routeValues: null, controllerName: "Product", ajaxOptions: new AjaxOptions { UpdateTargetId = "prodform" }, htmlAttributes: new { @class = "submitbutton" })
+        <div id="prodform">
+        </div>
+
+        @this.Ajax.ActionLink(linkText: "View all products", actionName: "DisplayProducts", routeValues: null, controllerName: "Product", ajaxOptions: new AjaxOptions { UpdateTargetId = "prodtable" }, htmlAttributes: new { @class = "submitbutton" })
+        <div id="prodtable">
+        </div>
+    </div>
+
+    <div class="dashboard-div">
+        <h4>Offers</h4>
+        @this.Ajax.ActionLink(linkText: "Add an offer", actionName: "Create", routeValues: null, controllerName: "Offer", ajaxOptions: new AjaxOptions { UpdateTargetId = "offerform" }, htmlAttributes: new { @class = "submitbutton" })
+        <div id="offerform">
+        </div>
+
+        @this.Ajax.ActionLink(linkText: "View all offers", actionName: "DisplayOffers", routeValues: null, controllerName: "Offer", ajaxOptions: new AjaxOptions { UpdateTargetId = "offertable" }, htmlAttributes: new { @class = "submitbutton" })
+        <div id="offertable">
+        </div>
+    </div>
+
+    <div class="dashboard-div">
+        <h4>Customer Feedback</h4>
+
+        @this.Ajax.ActionLink(linkText: "View all feedback", actionName: "DisplayFeedback", routeValues: null, controllerName: "Feedback", ajaxOptions: new AjaxOptions { UpdateTargetId = "feedbacktable" }, htmlAttributes: new { @class = "submitbutton" })
+        <div id="feedbacktable">
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+
+
